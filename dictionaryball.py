@@ -169,7 +169,66 @@ def player_stats(player_name):
 			 	for p, s in data.items(): 
 			 		if p == player_name: 
 			 			return s 
+
+def all_players(): 
+	players = []
+	for location, team_stats in game_dict().items():
+		for stats, data in team_stats.items():
+			#import pdb; pdb.set_trace()
+			if stats == "players":
+			 	for p, s in data.items(): 
+			 		players.append(p)
+	return players 
+
+def players_with_shoes(list_of_players):
+	player_dict = {}
+	for player in list_of_players:
+		for location, team_stats in game_dict().items():
+			for stats, data in team_stats.items():
+				#import pdb; pdb.set_trace()
+				if stats == "players":
+				 	for p, s in data.items(): 
+				 		player_dict[p] = s['shoe']
+	return player_dict
+
+def players_points(list_of_players):
+	player_dict = {}
+	for player in list_of_players:
+		for location, team_stats in game_dict().items():
+			for stats, data in team_stats.items():
+				#import pdb; pdb.set_trace()
+				if stats == "players":
+				 	for p, s in data.items(): 
+				 		player_dict[p] = s['points']
+	return player_dict
+				 		
+
+
+def big_shoe_rebounds(): 
+	player_with_biggest_shoe = max(players_with_shoes(all_players()), key=players_with_shoes(all_players()).get)
+	stats_dict = player_stats(player_with_biggest_shoe)
+	return stats_dict['rebounds']
     
+
+
+def most_points_scored(): 
+	return max(players_points(all_players()), key=players_points(all_players()).get)
+
+def team_points(): 
+	teams_points_dict = {}
+	for location, team_stats in game_dict().items():
+		teams_points_dict[game_dict()[location]['team_name']] = 0 
+		for stats, data in team_stats.items():
+			if stats == "players":
+				for p, s in data.items(): 
+					#import pdb; pdb.set_trace()
+					teams_points_dict[game_dict()[location]['team_name']] += s['points']
+	return teams_points_dict
+
+
+def winning_team(): 
+	return max(team_points(), key=team_points().get)
+
 def good_practices():
   for location, team_stats in game_dict().items():
     # are you ABSOLUTELY SURE what 'location' and 'team_stats' are? use pdb.set_trace() to find out!
@@ -182,7 +241,45 @@ def good_practices():
         for item in data:
             print(item)
 
+def players_and_name_length(): 
+	player_dict = {}
+	for player in all_players():
+		for location, team_stats in game_dict().items():
+			for stats, data in team_stats.items():
+				#import pdb; pdb.set_trace()
+				if stats == "players":
+				 	for p, s in data.items(): 
+				 		player_dict[p] = len(p)
+	return player_dict
+
+def players_and_steals(): 
+	player_dict = {}
+	for player in all_players():
+		for location, team_stats in game_dict().items():
+			for stats, data in team_stats.items():
+				#import pdb; pdb.set_trace()
+				if stats == "players":
+				 	for p, s in data.items(): 
+				 		player_dict[p] = s['steals']
+	return player_dict
+
+
+def player_with_longest_name(): 
+	return max(players_and_name_length(), key=players_and_name_length().get)
+
+def player_with_the_most_steals(): 
+	return max(players_and_steals(), key=players_and_steals().get)
+
+def long_name_steals_a_ton(): 
+	return player_with_longest_name() == player_with_the_most_steals()
+
+
 #good_practices()
 # player_name = "Ben Gordon"
-print(player_stats("Ben Gordon"))
+print(players_with_shoes(all_players()))
+print(max(players_with_shoes(all_players()), key=players_with_shoes(all_players()).get)
+)
+print(player_with_the_most_steals())
+print(player_with_longest_name())
+print(long_name_steals_a_ton())
 #good_practices()
