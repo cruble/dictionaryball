@@ -70,5 +70,10 @@ game_dictionary = {'away': {'colors': ['Turquoise', 'Purple'],
 
 
 game_dictionary['away']['players']['DeSagna Diop'] = 
-{'number': 2, 'shoe': 14, 'points': 22, 'rebounds': 12, 'assists': 7, 'steals': 7 , 'blocks': 15 , 'slam_dunks': 10 }
-#need to do Bismak Biyombo 
+{'number': 2, 'shoe': 14, 'points': 24, 'rebounds': 12, 'assists': 12, 'steals': 4 , 'blocks': 5 , 'slam_dunks': 5 }
+
+game_dictionary['away']['players']['Ben Gordon'] = 
+{'number': 8, 'shoe': 15, 'points': 33, 'rebounds': 3, 'assists': 2, 'steals': 2 , 'blocks': 2 , 'slam_dunks': 0 }
+
+game_dictionary['away']['players']['Brendan Haywood'] = 
+{'number': 8, 'shoe': 15, 'points': 33, 'rebounds': 3, 'assists': 2, 'steals': 2 , 'blocks': 2 , 'slam_dunks': 0 }
