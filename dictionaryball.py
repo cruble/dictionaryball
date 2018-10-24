@@ -25,7 +25,7 @@ game_dictionary = {
             'Brendan Haywood': {
                 'assists': 2,
                 'blocks': 2,
-                'number': 8,
+                'number': 33,
                 'points': 33,
                 'rebounds': 3,
                 'shoe': 15,
@@ -165,8 +165,6 @@ def player_numbers(input_team_name):
 				#import pdb; pdb.set_trace()
 				for p, s in data.items():
 					team_jersey_numbers.append(s['number'])
-					print(p, s['number'])
-	print(team_jersey_numbers)
 	return team_jersey_numbers
 
 def player_stats(player_name):
