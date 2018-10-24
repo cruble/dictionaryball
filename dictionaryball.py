@@ -113,23 +113,29 @@ game_dictionary = {
     }
 }
 
+
 def game_dict():
-    return game_dictionary
+	return game_dictionary
+
+def all_players(): 
+	pass 
+
 
 def num_points_scored(player_name):
+	points = 0 
 	for location, team_stats in game_dict().items():
 		for stats, data in team_stats.items():
 			if stats == "players" and player_name in data:
-			 	points = data[player_name]['points']
-				return points 
-
+				points = data[player_name]['points']
+	return points 
 
 def shoe_size(player_name):
-    for location, team_stats in game_dict().items():
+	size = 0
+	for location, team_stats in game_dict().items():
 		for stats, data in team_stats.items():
 			if stats == "players" and player_name in data:
-			 	size = data[player_name]['shoe']
-				return size
+				size = data[player_name]['shoe']
+	return size
 	#print("hello")
 
 def team_colors(input_team_name):
@@ -151,15 +157,17 @@ def team_names():
 	return team_name_list
 
 def player_numbers(input_team_name):
-    team_jersey_numbers = []
-    for location, team_stats in game_dict().items():
+	team_jersey_numbers = []
+	for location, team_stats in game_dict().items():
 		for stats, data in team_stats.items():
-			#import pdb; pdb.set_trace()
+		#import pdb; pdb.set_trace()()
 			if stats == "players" and game_dict()[location]['team_name'] == input_team_name:
 				#import pdb; pdb.set_trace()
 				for p, s in data.items():
 					team_jersey_numbers.append(s['number'])
-				return team_jersey_numbers
+					print(p, s['number'])
+	print(team_jersey_numbers)
+	return team_jersey_numbers
 
 def player_stats(player_name):
 	for location, team_stats in game_dict().items():
@@ -276,10 +284,11 @@ def long_name_steals_a_ton():
 
 #good_practices()
 # player_name = "Ben Gordon"
-print(players_with_shoes(all_players()))
-print(max(players_with_shoes(all_players()), key=players_with_shoes(all_players()).get)
-)
-print(player_with_the_most_steals())
-print(player_with_longest_name())
-print(long_name_steals_a_ton())
+# print(players_with_shoes(all_players()))
+# print(max(players_with_shoes(all_players()), key=players_with_shoes(all_players()).get)
+# )
+# print(player_with_the_most_steals())
+# print(player_with_longest_name())
+# print(long_name_steals_a_ton())
 #good_practices()
+player_numbers("Charlotte Hornets")

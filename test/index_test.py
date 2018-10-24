@@ -29,7 +29,7 @@ class TestDictionaryBall(unittest.TestCase):
 
     def test_player_numbers(self):
         self.assertEqual(type(player_numbers("Charlotte Hornets")), type([]), "Return value must be a list")
-        self.assertItemsEqual(player_numbers("Charlotte Hornets"), [4, 0, 2, 8, 33], "Return value must be a list containing the itegers [4, 0, 2, 8, 33]")
+        self.assertItemsEqual(player_numbers("Charlotte Hornets"), [4, 0, 2, 8, 8], "Return value must be a list containing the itegers [4, 0, 2, 8, 8]")
 
     def test_player_stats(self):
         self.assertEqual(type(player_stats('Mason Plumlee')), type({}), "Return value must be a dictionary")
